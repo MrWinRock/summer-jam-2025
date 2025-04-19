@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class WheelController : MonoBehaviour
 {
+    float GetHorizontalSpeed()
+    {
+        Vector3 horizontalVelocity = new Vector3(carRb.velocity.x, 0, carRb.velocity.z);
+        return horizontalVelocity.magnitude;
+    }
+
     public enum ControlMode
     {
         Keyboard,
@@ -45,6 +51,8 @@ public class WheelController : MonoBehaviour
 
     public float _steerAngle;
     public float bosterForce = 1000f;
+    public float maxSpeed = 1f; // Maximum speed in Unity units per second
+
 
 
     void Start()
@@ -88,11 +96,21 @@ public class WheelController : MonoBehaviour
 
     void Move()
     {
+        float currentSpeed = GetHorizontalSpeed();
+
         foreach (var wheel in wheels)
         {
-            wheel.wheelCollider.motorTorque = moveInput * bosterForce * maxAcceleration * Time.deltaTime;
+            if (currentSpeed < maxSpeed || bosterForce > 1000f) // allow overspeeding when boosting
+            {
+                wheel.wheelCollider.motorTorque = moveInput * bosterForce * maxAcceleration * Time.deltaTime;
+            }
+            else
+            {
+                wheel.wheelCollider.motorTorque = 0f; // stop applying torque when over speed
+            }
         }
     }
+
 
     void Steer()
     {
@@ -108,8 +126,8 @@ public class WheelController : MonoBehaviour
             }
         }
     }
-
-
+    
+    
     void AnimateWheels()
     {
         foreach (var wheel in wheels)
@@ -127,7 +145,7 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if (_steerAngle < -60 || _steerAngle > 60 && wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true)
+            if (_steerAngle < -20 || _steerAngle > 20 && wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 wheel.smokeParticle.Emit(6);

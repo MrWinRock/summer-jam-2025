@@ -2339,6 +2339,7 @@ GameObject:
   - component: {fileID: 2049096323}
   - component: {fileID: 2049096322}
   - component: {fileID: 2049096326}
+  - component: {fileID: 2049096327}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Boost
@@ -2462,6 +2463,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2049096327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049096321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60499fddd6357d04989a9769e096580e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &284415118066473524
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2779,7 +2792,7 @@ MonoBehaviour:
   maxAcceleration: 30
   brakeAcceleration: 50
   turnSensitivity: 2
-  maxSteerAngle: 40
+  maxSteerAngle: 15
   _centerOfMass: {x: 0, y: 0, z: 0}
   wheels:
   - wheelModel: {fileID: 4959465430212522265}
@@ -2804,6 +2817,7 @@ MonoBehaviour:
     axel: 1
   _steerAngle: 0
   bosterForce: 1000
+  maxSpeed: 1
 --- !u!114 &4974112350559059670
 MonoBehaviour:
   m_ObjectHideFlags: 0
