@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WheelController : MonoBehaviour
@@ -12,12 +13,10 @@ public class WheelController : MonoBehaviour
     [SerializeField] private Transform rRTransform;
     [SerializeField] private Transform rLTransform;
     
-    public float acceleration = 1000f;
-    public float breakingForce = 300f;
+    public float acceleration = 2000f;
     public float maxTurnAngle = 30f;
     
     private float currentAcceleration = 0f;
-    private float currentBreakingForce = 0f;
     private float currentTurnAngle = 0f;
     
     private void FixedUpdate()
@@ -37,6 +36,8 @@ public class WheelController : MonoBehaviour
         UpdateWheel(fR, fRTransform);
         UpdateWheel(rL, rLTransform);
         UpdateWheel(rR, rRTransform);
+        
+        Console.WriteLine(currentAcceleration);
         
     }
 
