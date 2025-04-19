@@ -17,6 +17,10 @@ public class DestroyObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        throw new NotImplementedException();
+        if (other.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 }

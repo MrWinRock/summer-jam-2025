@@ -50,7 +50,7 @@ public class WheelController : MonoBehaviour
     private Rigidbody carRb;
 
     public float _steerAngle;
-    public float bosterForce = 1000f;
+    public float boosterForce = 1000f;
     public float maxSpeed = 1f; // Maximum speed in Unity units per second
 
 
@@ -66,7 +66,7 @@ public class WheelController : MonoBehaviour
         GetInputs();
         AnimateWheels();
         WheelEffects();
-        Debug.Log(bosterForce);
+        Debug.Log(boosterForce);
     }
 
     void LateUpdate()
@@ -100,9 +100,9 @@ public class WheelController : MonoBehaviour
 
         foreach (var wheel in wheels)
         {
-            if (currentSpeed < maxSpeed || bosterForce > 1000f) // allow overspeeding when boosting
+            if (currentSpeed < maxSpeed || boosterForce > 1000f) // allow overspeeding when boosting
             {
-                wheel.wheelCollider.motorTorque = moveInput * bosterForce * maxAcceleration * Time.deltaTime;
+                wheel.wheelCollider.motorTorque = moveInput * boosterForce * maxAcceleration * Time.deltaTime;
             }
             else
             {
@@ -145,7 +145,7 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if (_steerAngle < -20 || _steerAngle > 20 && wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true)
+            if ((_steerAngle < -20 || _steerAngle > 20) && wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 wheel.smokeParticle.Emit(6);
@@ -161,13 +161,13 @@ public class WheelController : MonoBehaviour
         if (other.CompareTag("Boost"))
         {
             Debug.Log("Boost");
-            bosterForce = 100000f;
+            boosterForce = 100000f;
             Invoke(nameof(ResetBosterForce), 3f);
         }
     }
 
     private void ResetBosterForce()
     {
-        bosterForce = 1000f;
+        boosterForce = 1000f;
     }
 }
