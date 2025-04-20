@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaypointsContainer : MonoBehaviour
 {
-    public List<Transform> waypoints;
+    public List<Transform> waypoints = new List<Transform>();
 
     void Awake()
     {
