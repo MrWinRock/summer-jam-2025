@@ -11,11 +11,11 @@ public class CarDriverAI : MonoBehaviour
 
     private WheelController controller;
 
-    float stuckTimer = 0f;
-    float reverseTimer = 0f;
+    private float stuckTimer = 0f;
+    private float reverseTimer = 0f;
 
     Vector3 lastPosition;
-    bool isReversing = false;
+    private bool isReversing = false;
 
     void Start()
     {
@@ -48,7 +48,7 @@ public class CarDriverAI : MonoBehaviour
             if (stuckTimer > 2f)
             {
                 isReversing = true;
-                reverseTimer = 0f; // เริ่มจับเวลาถอยหลังใหม่
+                reverseTimer = 0f;
             }
         }
 
