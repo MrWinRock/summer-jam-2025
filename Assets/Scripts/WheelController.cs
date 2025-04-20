@@ -1,63 +1,173 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 public class WheelController : MonoBehaviour
 {
-    [SerializeField] private WheelCollider fR;
-    [SerializeField] private WheelCollider fL;
-    [SerializeField] private WheelCollider rR;
-    [SerializeField] private WheelCollider rL;
-    
-    [SerializeField] private Transform fRTransform;
-    [SerializeField] private Transform fLTransform;
-    [SerializeField] private Transform rRTransform;
-    [SerializeField] private Transform rLTransform;
-    
-    public float acceleration = 1000f;
-    public float breakingForce = 300f;
-    public float maxTurnAngle = 30f;
-    
-    private float currentAcceleration = 0f;
-    private float currentBreakingForce = 0f;
-    private float currentTurnAngle = 0f;
-    
-    private void FixedUpdate()
+    float GetHorizontalSpeed()
     {
-        // forward and backward movement W/S
-        currentAcceleration = acceleration * Input.GetAxis("Vertical");
-        
-        
-        fR.motorTorque = currentAcceleration;
-        fL.motorTorque = currentAcceleration;
-        
-        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
-        fR.steerAngle = currentTurnAngle;
-        fL.steerAngle = currentTurnAngle;
-        
-        UpdateWheel(fL, fLTransform);
-        UpdateWheel(fR, fRTransform);
-        UpdateWheel(rL, rLTransform);
-        UpdateWheel(rR, rRTransform);
-        
+        Vector3 horizontalVelocity = new Vector3(carRb.velocity.x, 0, carRb.velocity.z);
+        return horizontalVelocity.magnitude;
     }
 
-    void UpdateWheel(WheelCollider col, Transform trans)
+    public enum ControlMode
     {
-        
-        Vector3 pos;
-        Quaternion rot;
-        col.GetWorldPose(out pos, out rot);
+        Keyboard,
+        Buttons
+    };
 
-        trans.position = pos;
-        trans.rotation = rot;
+    public enum Axel
+    {
+        Front,
+        Rear
     }
+
+    [Serializable]
+    public struct Wheel
+    {
+        public GameObject wheelModel;
+        public WheelCollider wheelCollider;
+        public GameObject wheelEffectObj;
+        public ParticleSystem smokeParticle;
+        public Axel axel;
+    }
+
+    public ControlMode control;
+
+    public float maxAcceleration = 30.0f;
+    public float brakeAcceleration = 50.0f;
+
+    public float turnSensitivity = 1.0f;
+    public float maxSteerAngle = 30.0f;
+
+    public Vector3 _centerOfMass;
+
+    public List<Wheel> wheels;
+
+    float moveInput;
+    float steerInput;
+
+    private Rigidbody carRb;
+
+    public float _steerAngle;
+    public float boosterForce = 1000f;
+    public float maxSpeed = 5f; // Maximum speed in Unity units per second
+
+
+
     void Start()
     {
-        
+        carRb = GetComponent<Rigidbody>();
+        carRb.centerOfMass = _centerOfMass;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        GetInputs();
+        AnimateWheels();
+        WheelEffects();
+        Debug.Log(boosterForce);
+    }
+
+    void LateUpdate()
+    {
+        Move();
+        Steer();
+    }
+
+    public void MoveInput(float input)
+    {
+        moveInput = input;
+    }
+
+    public void SteerInput(float input)
+    {
+        steerInput = input;
+    }
+
+    void GetInputs()
+    {
+        if (control == ControlMode.Keyboard)
+        {
+            moveInput = Input.GetAxis("Vertical");
+            steerInput = Input.GetAxis("Horizontal");
+        }
+    }
+
+    void Move()
+    {
+        float currentSpeed = GetHorizontalSpeed();
+
+        foreach (var wheel in wheels)
+        {
+            if (currentSpeed < maxSpeed || boosterForce > 1000f) // allow overspeeding when boosting
+            {
+                wheel.wheelCollider.motorTorque = moveInput * boosterForce * maxAcceleration * Time.deltaTime;
+            }
+            else
+            {
+                wheel.wheelCollider.motorTorque = 0f; // stop applying torque when over speed
+            }
+        }
+    }
+
+
+    void Steer()
+    {
+        foreach (var wheel in wheels)
+        {
+            if (wheel.axel == Axel.Front)
+            {
+                _steerAngle = steerInput * turnSensitivity * maxSteerAngle;
+                Debug.Log(_steerAngle);
+                wheel.wheelCollider.steerAngle = Mathf.Lerp(wheel.wheelCollider.steerAngle, _steerAngle, 0.6f);
+
+
+            }
+        }
+    }
+    
+    
+    void AnimateWheels()
+    {
+        foreach (var wheel in wheels)
+        {
+            Quaternion rot;
+            Vector3 pos;
+            wheel.wheelCollider.GetWorldPose(out pos, out rot);
+            wheel.wheelModel.transform.position = pos;
+            wheel.wheelModel.transform.rotation = rot;
+        }
+    }
+
+    void WheelEffects()
+    {
+        foreach (var wheel in wheels)
+        {
+            //var dirtParticleMainSettings = wheel.smokeParticle.main;
+            if (_steerAngle < -20 || _steerAngle > 20 && (wheel.axel == Axel.Rear && wheel.wheelCollider.isGrounded == true))
+            {
+                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
+                wheel.smokeParticle.Emit(6);
+            }
+            else
+            {
+                wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
+            }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Boost"))
+        {
+            Debug.Log("Boost");
+            boosterForce = 100000f;
+            Invoke(nameof(ResetBosterForce), 3f);
+        }
+    }
+
+    private void ResetBosterForce()
+    {
+        boosterForce = 1000f;
     }
 }
