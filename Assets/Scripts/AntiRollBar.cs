@@ -24,7 +24,7 @@ public class AntiRollBar : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.y, 0);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
         }
         
     }
@@ -36,15 +36,15 @@ public class AntiRollBar : MonoBehaviour
         float travelR = 1.0f;
 
 
-        bool groundedL = WheelL.GetGroundHit(out hit);
-        if (groundedL)
+        bool isGroundedL = WheelL.GetGroundHit(out hit);
+        if (isGroundedL)
         {
             travelL = (-WheelL.transform.InverseTransformPoint(hit.point).y - WheelL.radius) /
                       WheelL.suspensionDistance;
         }
 
-        bool groundedR = WheelR.GetGroundHit(out hit);
-        if (groundedR)
+        bool isGroundedR = WheelR.GetGroundHit(out hit);
+        if (isGroundedR)
         {
             travelR = (-WheelR.transform.InverseTransformPoint(hit.point).y - WheelR.radius) /
                       WheelR.suspensionDistance;
@@ -52,10 +52,10 @@ public class AntiRollBar : MonoBehaviour
 
         float antiRollForce = (travelL - travelR) * AntiRoll;
 
-        if (groundedL)
+        if (isGroundedL)
             car.AddForceAtPosition(WheelL.transform.up * -antiRollForce, WheelL.transform.position);
 
-        if (groundedR)
+        if (isGroundedR)
             car.AddForceAtPosition(WheelR.transform.up * antiRollForce, WheelR.transform.position);
         
     }
