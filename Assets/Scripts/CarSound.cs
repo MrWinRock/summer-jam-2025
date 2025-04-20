@@ -29,7 +29,7 @@ public class CarSound : MonoBehaviour
         currentSpeed = carRb.velocity.magnitude;
         pitchFromCar = carRb.velocity.magnitude / 60f;
 
-        if(currentSpeed < minSpeed)
+        if(currentSpeed <= minSpeed)
         {
             carAudio.pitch = minPitch;
         }
@@ -39,7 +39,7 @@ public class CarSound : MonoBehaviour
             carAudio.pitch = minPitch + pitchFromCar;
         }
 
-        if(currentSpeed > maxSpeed)
+        if(currentSpeed >= maxSpeed)
         {
             carAudio.pitch = maxPitch;
         }

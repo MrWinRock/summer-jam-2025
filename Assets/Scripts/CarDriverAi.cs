@@ -86,11 +86,10 @@ public class CarDriverAI : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Ground"))
         {
-            flipTime -= Time.deltaTime;
             Debug.Log("Collision with ground detected!");
-            if (transform.rotation.eulerAngles.z > 150f || transform.rotation.eulerAngles.z < -150f || transform.rotation.eulerAngles.y > 150f || transform.rotation.eulerAngles.y < -150f && flipTime < 3f)
+            if (transform.rotation.eulerAngles.z > 150f || transform.rotation.eulerAngles.z < -150f || transform.rotation.eulerAngles.y > 150f || transform.rotation.eulerAngles.y < -150f)
             {
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.y, 0);
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
                 flipTime = 5f;
             }
         }
