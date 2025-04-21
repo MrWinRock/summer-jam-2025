@@ -174,7 +174,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _HeightTransition: 0
-    - _Metallic: 0
+    - _Metallic: 0.676
     - _Metallic0: 0
     - _Metallic1: 0
     - _Metallic2: 0
