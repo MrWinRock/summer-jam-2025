@@ -1192,7 +1192,7 @@ MonoBehaviour:
   maxAcceleration: 30
   brakeAcceleration: 50
   turnSensitivity: 2
-  maxSteerAngle: 15
+  maxSteerAngle: 25
   _centerOfMass: {x: 0, y: 0, z: 0}
   wheels:
   - wheelModel: {fileID: 8957282910788508756}
@@ -1215,8 +1215,8 @@ MonoBehaviour:
     wheelEffectObj: {fileID: 0}
     smokeParticle: {fileID: 0}
     axel: 1
-  _steerAngle: 0
-  boosterForce: 1000
+  _steerAngle: 10
+  boosterForce: 500
   maxSpeed: 20
   crashSound: {fileID: 7509117026939370244}
   driftSound: {fileID: 7608120134206912036}
