@@ -160,7 +160,7 @@ public class WheelController : MonoBehaviour
         if (other.CompareTag("Boost"))
         {
             Debug.Log("Boost");
-            boosterForce = 100000f;
+            boosterForce = 5000f;
             Invoke(nameof(ResetBosterForce), 3f);
         }
     }
