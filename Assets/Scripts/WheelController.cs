@@ -166,6 +166,7 @@ public class WheelController : MonoBehaviour
             else
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
+
                 driftSound.Play();
                 nitroEffect1.SetActive(false);
                 nitroEffect2.SetActive(false);

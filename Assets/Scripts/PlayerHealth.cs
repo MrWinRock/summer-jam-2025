@@ -35,10 +35,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (currentHealth <= 0)
         {
-            GetComponent<WheelController>().enabled = false;
-            fireEffect.SetActive(true);
-            expoldeEffect.SetActive(true);
-            carExplode.Play();
+            CarExplode();
             Invoke(nameof(Die), 2f);
         }
     }
@@ -56,4 +53,14 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(100);
         }
     }
+
+    private void CarExplode()
+    {
+        GetComponent<WheelController>().enabled = false;
+        fireEffect.SetActive(true);
+        expoldeEffect.SetActive(true);
+        carExplode.Play();
+        carExplode.Play();
+    }
+    
 }
