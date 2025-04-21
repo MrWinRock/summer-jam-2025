@@ -157,7 +157,7 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if ((_steerAngle < -20 || _steerAngle > 20) && wheel.wheelCollider.isGrounded == true)
+            if ((_steerAngle < -40 || _steerAngle > 40) && wheel.wheelCollider.isGrounded == true)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 nitroEffect1.SetActive(true);
