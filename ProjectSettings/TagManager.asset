@@ -10,6 +10,8 @@ TagManager:
   - Teleport
   - Spawn
   - Police
+  - FxTemporaire
+  - TrackCar
   layers:
   - Default
   - TransparentFX

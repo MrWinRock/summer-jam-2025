@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement; // ต้องใช้สำหรับโหลดฉากใหม่
 
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public GameObject fireEffect;
     public GameObject expoldeEffect;
+    public AudioSource carExplode;
 
     void Start()
     {
@@ -36,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
             GetComponent<WheelController>().enabled = false;
             fireEffect.SetActive(true);
             expoldeEffect.SetActive(true);
+            carExplode.Play();
             Invoke(nameof(Die), 2f);
         }
     }
@@ -44,5 +47,13 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player died. Reloading scene...");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Police"))
+        {
+            TakeDamage(100);
+        }
     }
 }
