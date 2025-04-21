@@ -36,7 +36,7 @@ public class CarDriverAI : MonoBehaviour
         float steer = Mathf.Clamp(localDir.x, -1f, 1f) * turnSpeed;
         controller.SteerInput(steer);
 
-        float currentSpeed = controller.GetComponent<Rigidbody>().velocity.magnitude;
+        float currentSpeed = controller.GetComponent<Rigidbody>().linearVelocity.magnitude;
 
         if (!isReversing)
         {
@@ -68,7 +68,7 @@ public class CarDriverAI : MonoBehaviour
         {
             float speedFactor = Mathf.Clamp01((distance - followDistance) / 10f);
             float speedLimitFactor =
-                Mathf.Clamp01((controller.maxSpeed - controller.GetComponent<Rigidbody>().velocity.magnitude) /
+                Mathf.Clamp01((controller.maxSpeed - controller.GetComponent<Rigidbody>().linearVelocity.magnitude) /
                               controller.maxSpeed);
             float throttle = speedFactor * speedLimitFactor;
 
