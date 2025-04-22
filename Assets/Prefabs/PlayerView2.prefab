@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7646157914779611128}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07602354, y: 1.1244316e-29, z: -9.3689025e-31, w: 0.997106}
+  m_LocalRotation: {x: 0.076022945, y: 0, z: 0, w: 0.9971061}
   m_LocalPosition: {x: 6.08, y: 2.52, z: -8.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -0.08, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.72, y: 0, z: 0}
 --- !u!114 &9163037761920111481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 30
+    FieldOfView: 70
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -91,11 +91,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 2
-    PositionDamping: {x: 0.5, y: 0.5, z: 0.5}
+    PositionDamping: {x: 0.3, y: 0.3, z: 0.3}
     AngularDampingMode: 0
-    RotationDamping: {x: 0.5, y: 0.5, z: 0.5}
+    RotationDamping: {x: 0.3, y: 0.3, z: 0.3}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 1.92, z: -8.29}
+  FollowOffset: {x: 0, y: 1.82, z: -4.35}
 --- !u!114 &5938686764465689546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,16 +109,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Composition:
-    ScreenPosition: {x: 0, y: 0.1}
+    ScreenPosition: {x: 0, y: 0.13}
     DeadZone:
-      Enabled: 0
+      Enabled: 1
       Size: {x: 0.2, y: 0.2}
     HardLimits:
       Enabled: 0
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0.19, z: 0}
+  TargetOffset: {x: 0, y: 0.19, z: -0.22}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
     Enabled: 0

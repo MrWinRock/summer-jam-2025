@@ -53,12 +53,24 @@ public class WheelController : MonoBehaviour
     public float boosterForce = 1000f;
     public float maxSpeed = 5f; // Maximum speed in Unity units per second
 
+    public AudioSource crashSound;
+    public AudioSource driftSound;
+    public AudioSource nitroSound;
+    
+    public GameObject nitroEffect1;
+    public GameObject nitroEffect2;
+    public GameObject nitroEffect3;
+    public GameObject nitroEffect4;
 
-
+    
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
         carRb.centerOfMass = _centerOfMass;
+        nitroEffect1.SetActive(false);
+        nitroEffect2.SetActive(false);
+        nitroEffect3.SetActive(false);
+        nitroEffect4.SetActive(false);
     }
 
     void Update()
@@ -145,13 +157,19 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if ((_steerAngle < -20 || _steerAngle > 20) && wheel.wheelCollider.isGrounded == true)
+            if ((_steerAngle < -40 || _steerAngle > 40) && wheel.wheelCollider.isGrounded == true)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
+                nitroEffect1.SetActive(true);
+                nitroEffect2.SetActive(true);
             }
             else
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
+
+                driftSound.Play();
+                nitroEffect1.SetActive(false);
+                nitroEffect2.SetActive(false);
             }
         }
     }
@@ -159,6 +177,11 @@ public class WheelController : MonoBehaviour
     {
         if (other.CompareTag("Boost"))
         {
+            nitroEffect1.SetActive(true);
+            nitroEffect2.SetActive(true);
+            nitroEffect3.SetActive(true);
+            nitroEffect4.SetActive(true);
+            nitroSound.Play();
             Debug.Log("Boost");
             boosterForce = 5000f;
             Invoke(nameof(ResetBosterForce), 3f);
@@ -167,6 +190,16 @@ public class WheelController : MonoBehaviour
 
     private void ResetBosterForce()
     {
+        nitroEffect1.SetActive(false);
+        nitroEffect2.SetActive(false);
+        nitroEffect3.SetActive(false);
+        nitroEffect4.SetActive(false);
         boosterForce = 1000f;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        crashSound.Play();
+        
     }
 }

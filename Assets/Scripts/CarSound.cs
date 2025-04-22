@@ -7,15 +7,15 @@ public class CarSound : MonoBehaviour
     private float currentSpeed;
 
     private Rigidbody carRb;
-    private AudioSource carAudio;
+    public AudioSource carAudio;
     
     public float minPitch;
     public float maxPitch;
     private float pitchFromCar;
 
+
     void Start()
     {
-        carAudio = GetComponent<AudioSource>();
         carRb = GetComponent<Rigidbody>();
     }
 
