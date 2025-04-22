@@ -30,7 +30,7 @@ public class TimeScene : MonoBehaviour
 
         if (timeToGo <= 0)
         {
-            playerHealth.TakeDamage(100);
+            playerHealth.TakeDamage(playerHealth.timeUpDamage);
         }
         
         if (Input.GetKeyDown(KeyCode.R))
