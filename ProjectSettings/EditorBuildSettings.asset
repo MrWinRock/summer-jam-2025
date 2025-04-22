@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Wild_West.unity
     guid: 040f945ece9f6d3438feda40400df49f
   - enabled: 1
-    path: Assets/Scenes/City_night.unity
+    path: Assets/Scenes/City_nighttest.unity
     guid: 2e69ab881a0654d46b32cde56f157a62
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
