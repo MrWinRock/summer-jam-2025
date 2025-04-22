@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 0
-  maxAcceleration: 30
+  maxAcceleration: 0.2
   brakeAcceleration: 50
   turnSensitivity: 2
   maxSteerAngle: 15
@@ -963,7 +963,7 @@ MonoBehaviour:
     smokeParticle: {fileID: 0}
     axel: 1
   _steerAngle: 0
-  boosterForce: 300
+  boosterForce: 500
   maxSpeed: 10
   crashSound: {fileID: 8214980169886083113}
   driftSound: {fileID: 2350527316615243757}
@@ -972,6 +972,7 @@ MonoBehaviour:
   nitroEffect2: {fileID: 4530819535508876754}
   nitroEffect3: {fileID: 9020536415195618055}
   nitroEffect4: {fileID: 8039065609519915833}
+  nitroDuration: 1
 --- !u!114 &304671388674913344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,7 +1188,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1526,7 +1527,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2007,7 +2008,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2146,7 +2147,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

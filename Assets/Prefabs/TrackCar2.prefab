@@ -56,7 +56,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,7 +298,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1116,7 +1116,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1287,7 +1287,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 0
-  maxAcceleration: 30
+  maxAcceleration: 0.2
   brakeAcceleration: 50
   turnSensitivity: 2
   maxSteerAngle: 15
@@ -1905,6 +1905,7 @@ MonoBehaviour:
   nitroEffect2: {fileID: 5302042542431711620}
   nitroEffect3: {fileID: 3194382777287744245}
   nitroEffect4: {fileID: 1453790715150668907}
+  nitroDuration: 1
 --- !u!114 &1983807056797263819
 MonoBehaviour:
   m_ObjectHideFlags: 0

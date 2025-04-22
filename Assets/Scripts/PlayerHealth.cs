@@ -10,7 +10,13 @@ public class PlayerHealth : MonoBehaviour
     public GameObject fireEffect;
     public GameObject expoldeEffect;
     public AudioSource carExplode;
-
+    public AudioSource carFire;
+    public int takePoliceDamage = 20;
+    public int takeRockDamage = 35;
+    public int takeTrainDamage = 100;
+    public int timeUpDamage = 100;
+    public int bombDamage = 50;
+    
     void Start()
     {
         currentHealth = maxHealth;
@@ -50,7 +56,15 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Police"))
         {
-            TakeDamage(100);
+            TakeDamage(takePoliceDamage);
+        }
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            TakeDamage(takeRockDamage);
+        }
+        if (other.gameObject.CompareTag("Train"))
+        {
+            TakeDamage(takeTrainDamage);
         }
     }
 
@@ -60,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
         fireEffect.SetActive(true);
         expoldeEffect.SetActive(true);
         carExplode.Play();
-        carExplode.Play();
+        carFire.Play();
     }
     
 }
