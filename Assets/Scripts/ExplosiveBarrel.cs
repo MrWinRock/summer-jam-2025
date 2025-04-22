@@ -20,10 +20,7 @@ public class ExplosiveBarrel : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isExploding)
-        {
-            Explode();
-        }
+
     }
 
     void Explode()

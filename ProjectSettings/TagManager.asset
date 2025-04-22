@@ -12,6 +12,8 @@ TagManager:
   - Police
   - FxTemporaire
   - TrackCar
+  - Rock
+  - Train
   layers:
   - Default
   - TransparentFX

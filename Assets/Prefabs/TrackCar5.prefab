@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 0
-  maxAcceleration: 30
+  maxAcceleration: 0.2
   brakeAcceleration: 50
   turnSensitivity: 2
   maxSteerAngle: 15
@@ -530,6 +530,7 @@ MonoBehaviour:
   nitroEffect2: {fileID: 224357711980505039}
   nitroEffect3: {fileID: 1845744788579922862}
   nitroEffect4: {fileID: 6304440052035549539}
+  nitroDuration: 1
 --- !u!114 &2915946672614666133
 MonoBehaviour:
   m_ObjectHideFlags: 0

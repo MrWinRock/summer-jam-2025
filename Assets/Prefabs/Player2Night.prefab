@@ -30697,7 +30697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: 0
-  maxAcceleration: 30
+  maxAcceleration: 0.2
   brakeAcceleration: 50
   turnSensitivity: 2
   maxSteerAngle: 25
@@ -30724,7 +30724,7 @@ MonoBehaviour:
     smokeParticle: {fileID: 0}
     axel: 1
   _steerAngle: 10
-  boosterForce: 500
+  boosterForce: 800
   maxSpeed: 20
   crashSound: {fileID: 212519894149754447}
   driftSound: {fileID: 4763375744110856465}
@@ -30733,6 +30733,7 @@ MonoBehaviour:
   nitroEffect2: {fileID: 8688578299732004043}
   nitroEffect3: {fileID: 2935968948530248056}
   nitroEffect4: {fileID: 8951318914202270370}
+  nitroDuration: 1
 --- !u!114 &3489123128766093774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30766,6 +30767,7 @@ MonoBehaviour:
   fireEffect: {fileID: 2718198888743737554}
   expoldeEffect: {fileID: 2964580711334256376}
   carExplode: {fileID: 5326863922599643296}
+  carFire: {fileID: 0}
 --- !u!114 &6384943366070808413
 MonoBehaviour:
   m_ObjectHideFlags: 0

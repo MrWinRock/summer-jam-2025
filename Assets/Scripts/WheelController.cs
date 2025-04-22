@@ -62,6 +62,8 @@ public class WheelController : MonoBehaviour
     public GameObject nitroEffect3;
     public GameObject nitroEffect4;
     
+    public float nitroDuration = 1f;
+    
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
@@ -115,9 +117,9 @@ public class WheelController : MonoBehaviour
         
         foreach (var wheel in wheels)
         {
-            if (currentSpeed < maxSpeed || boosterForce > 1000f) // allow overspeeding when boosting
+            if (currentSpeed < maxSpeed || boosterForce > 800f) // allow overspeeding when boosting
             {
-                wheel.wheelCollider.motorTorque = moveInput * boosterForce * maxAcceleration * Time.deltaTime;
+                wheel.wheelCollider.motorTorque = moveInput * boosterForce * maxAcceleration;
             }
             else
             {
@@ -160,7 +162,7 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if ((_steerAngle < -40 || _steerAngle > 40) && wheel.wheelCollider.isGrounded)
+            if ((_steerAngle < -20 || _steerAngle > 20) && wheel.wheelCollider.isGrounded)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 nitroEffect1.SetActive(true);
@@ -188,8 +190,8 @@ public class WheelController : MonoBehaviour
             nitroEffect4.SetActive(true);
             nitroSound.Play();
             Debug.Log("Boost");
-            boosterForce = 5000f;
-            Invoke(nameof(ResetBosterForce), 3f);
+            boosterForce = 3000;
+            Invoke(nameof(ResetBosterForce), nitroDuration);
         }
     }
 
@@ -199,7 +201,7 @@ public class WheelController : MonoBehaviour
         nitroEffect2.SetActive(false);
         nitroEffect3.SetActive(false);
         nitroEffect4.SetActive(false);
-        boosterForce = 1000f;
+        boosterForce = 800;
     }
 
     private void OnCollisionEnter(Collision other)
