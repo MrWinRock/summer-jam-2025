@@ -26,8 +26,8 @@ public class CarSound : MonoBehaviour
 
     void EngineSound()
     {
-        currentSpeed = carRb.velocity.magnitude;
-        pitchFromCar = carRb.velocity.magnitude / 60f;
+        currentSpeed = carRb.linearVelocity.magnitude;
+        pitchFromCar = carRb.linearVelocity.magnitude / 60f;
 
         if(currentSpeed <= minSpeed)
         {

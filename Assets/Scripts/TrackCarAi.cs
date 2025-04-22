@@ -51,7 +51,7 @@ public class TrackCarAi : MonoBehaviour
             if (currentWaypoint == waypoints.Count)
                 currentWaypoint = 0;
         }
-        float currentSpeed = wheelController.GetComponent<Rigidbody>().velocity.magnitude;
+        float currentSpeed = wheelController.GetComponent<Rigidbody>().linearVelocity.magnitude;
         if (!isReversing)
         {
             if (currentSpeed < 0.1f)
