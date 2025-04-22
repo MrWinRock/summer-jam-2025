@@ -3,17 +3,12 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    [SerializeField] public GameObject teleportTarget;
-    [SerializeField] public GameObject cameraTarget;
-    
-    private Transform carTransform;
-    private Transform cameraTransform;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        carTransform = GetComponent<Transform>();
-        carTransform = GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
@@ -24,10 +19,9 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Teleport"))
+        if (other.CompareTag("Player"))
         {
-            carTransform.position = teleportTarget.transform.position;
-            cameraTransform.position = cameraTarget.transform.position;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

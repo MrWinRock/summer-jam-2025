@@ -61,7 +61,6 @@ public class WheelController : MonoBehaviour
     public GameObject nitroEffect2;
     public GameObject nitroEffect3;
     public GameObject nitroEffect4;
-
     
     void Start()
     {
@@ -71,6 +70,8 @@ public class WheelController : MonoBehaviour
         nitroEffect2.SetActive(false);
         nitroEffect3.SetActive(false);
         nitroEffect4.SetActive(false);
+        
+        driftSound.Stop();
     }
 
     void Update()
@@ -79,6 +80,7 @@ public class WheelController : MonoBehaviour
         AnimateWheels();
         WheelEffects();
         Debug.Log(boosterForce);
+        
     }
 
     void LateUpdate()
@@ -110,6 +112,7 @@ public class WheelController : MonoBehaviour
     {
         float currentSpeed = GetHorizontalSpeed();
 
+        
         foreach (var wheel in wheels)
         {
             if (currentSpeed < maxSpeed || boosterForce > 1000f) // allow overspeeding when boosting
@@ -157,17 +160,19 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if ((_steerAngle < -40 || _steerAngle > 40) && wheel.wheelCollider.isGrounded == true)
+            if ((_steerAngle < -40 || _steerAngle > 40) && wheel.wheelCollider.isGrounded)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 nitroEffect1.SetActive(true);
                 nitroEffect2.SetActive(true);
+                if (driftSound.isPlaying == false)
+                    driftSound.Play();
             }
             else
             {
+                Debug.Log("not drifting");
+                driftSound.Stop();
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
-
-                driftSound.Play();
                 nitroEffect1.SetActive(false);
                 nitroEffect2.SetActive(false);
             }

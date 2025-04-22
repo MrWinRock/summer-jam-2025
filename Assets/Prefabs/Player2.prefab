@@ -227,7 +227,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1384,7 +1384,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1652,7 +1652,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1791,7 +1791,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efa89375cd52e8b4eb39ccbdf479dba4, type: 2}
+  - {fileID: -1580535799172915004, guid: e1f4df3e0ce53a14a814e171b35184a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1921,7 +1921,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.699
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

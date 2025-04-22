@@ -10,6 +10,8 @@ public class ExplosiveBarrel : MonoBehaviour
 
     [SerializeField] private float range;
 
+    public AudioSource bombSound;
+
     void Awake()
     {
         barrel.SetActive(true);
@@ -26,13 +28,15 @@ public class ExplosiveBarrel : MonoBehaviour
 
     void Explode()
     {
+        
+        bombSound.Play();
         isExploding = true;
         
         explosionEffect.transform.SetParent(null);
         
         explosionEffect.SetActive(true);
         
-        Invoke(nameof(DisableBarrel), 0.1f);
+        Invoke(nameof(DisableBarrel), 0.3f);
         
         Destroy(explosionEffect, 3f);
         
@@ -41,7 +45,7 @@ public class ExplosiveBarrel : MonoBehaviour
         {
             if (col.CompareTag("Player"))
             {
-                col.GetComponent<PlayerHealth>().TakeDamage(100);
+                col.GetComponent<PlayerHealth>().TakeDamage(50);
             }
         }
     }
