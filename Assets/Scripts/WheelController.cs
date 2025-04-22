@@ -6,7 +6,7 @@ public class WheelController : MonoBehaviour
 {
     float GetHorizontalSpeed()
     {
-        Vector3 horizontalVelocity = new Vector3(carRb.velocity.x, 0, carRb.velocity.z);
+        Vector3 horizontalVelocity = new Vector3(carRb.linearVelocity.x, 0, carRb.linearVelocity.z);
         return horizontalVelocity.magnitude;
     }
 
