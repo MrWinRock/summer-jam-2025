@@ -64,6 +64,9 @@ public class WheelController : MonoBehaviour
     
     public float nitroDuration = 1f;
     
+    public float checkRightSteerAngle = 20f;
+    public float checkLeftSteerAngle = -20f;
+    
     void Start()
     {
         carRb = GetComponent<Rigidbody>();
@@ -162,7 +165,7 @@ public class WheelController : MonoBehaviour
         foreach (var wheel in wheels)
         {
             //var dirtParticleMainSettings = wheel.smokeParticle.main;
-            if ((_steerAngle < -20 || _steerAngle > 20) && wheel.wheelCollider.isGrounded)
+            if ((_steerAngle < checkLeftSteerAngle || _steerAngle > checkRightSteerAngle) && wheel.wheelCollider.isGrounded)
             {
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = true;
                 nitroEffect1.SetActive(true);

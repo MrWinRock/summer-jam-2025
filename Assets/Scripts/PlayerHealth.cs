@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public int takeRockDamage = 35;
     public int takeTrainDamage = 100;
     public int timeUpDamage = 100;
+    public int bombDamage = 50;
     
     void Start()
     {
