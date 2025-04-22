@@ -67,11 +67,7 @@ public class CarDriverAI : MonoBehaviour
         else
         {
             float speedFactor = Mathf.Clamp01((distance - followDistance) / 10f);
-            float speedLimitFactor =
-                Mathf.Clamp01((controller.maxSpeed - controller.GetComponent<Rigidbody>().linearVelocity.magnitude) /
-                              controller.maxSpeed);
-            float throttle = speedFactor * speedLimitFactor;
-
+            float throttle = speedFactor; // Increase throttle when far, decrease when close
             controller.MoveInput(throttle);
         }
     }

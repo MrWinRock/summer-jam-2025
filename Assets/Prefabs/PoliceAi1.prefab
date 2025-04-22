@@ -327,6 +327,8 @@ MonoBehaviour:
   nitroEffect3: {fileID: 1654460473565420385}
   nitroEffect4: {fileID: 4849840108723933161}
   nitroDuration: 1
+  checkRightSteerAngle: 20
+  checkLeftSteerAngle: -20
 --- !u!114 &126537310380163866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12024,7 +12026,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 4
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
