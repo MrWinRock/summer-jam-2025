@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        DeathCounter.deathCounter++;
         Debug.Log("Player died. Reloading scene...");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
