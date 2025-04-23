@@ -6,7 +6,10 @@ public class ChangeCutscene : MonoBehaviour
     public int sceneBuildIndex;
     void OnEnable()
     {
-        // Only specifying the sceneName or sceneBuildIndex will load the Scene with the Single mode
+        // Unload the previous scene to ensure no assets remain
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+
+        // Load the new scene in additive mode
         SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Additive);
     }
 }
