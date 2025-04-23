@@ -139,7 +139,6 @@ public class WheelController : MonoBehaviour
             if (wheel.axel == Axel.Front)
             {
                 _steerAngle = steerInput * turnSensitivity * maxSteerAngle;
-                Debug.Log(_steerAngle);
                 wheel.wheelCollider.steerAngle = Mathf.Lerp(wheel.wheelCollider.steerAngle, _steerAngle, 0.6f);
 
 

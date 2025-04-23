@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public int timeUpDamage = 100;
     public int bombDamage = 50;
     
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -36,6 +37,10 @@ public class PlayerHealth : MonoBehaviour
     // ฟังก์ชันรับดาเมจ
     public void TakeDamage(int amount)
     {
+        if (currentHealth <= 0)
+        {
+            return; // ถ้าสุขภาพเป็น 0 หรือ น้อยกว่า 0 จะไม่ทำอะไร
+        }
         currentHealth -= amount;
         Debug.Log("Player took damage. Current health: " + currentHealth);
         
@@ -48,6 +53,19 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        if (DeathCounter.instance != null)
+        {
+            DeathCounter.instance.deathCount++;
+            int count = DeathCounter.instance.deathCount;
+            
+            Debug.Log("Player died. Death count in scene: " + DeathCounter.instance.deathCount);
+            if (count == 3)
+                FindObjectOfType<DeathReaction>()?.death3Times?.Play();
+            else if (count == 5)
+                FindObjectOfType<DeathReaction>()?.death5Times?.Play();
+            else if (count == 8)
+                FindObjectOfType<DeathReaction>()?.death7Times?.Play();
+        }
         Debug.Log("Player died. Reloading scene...");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

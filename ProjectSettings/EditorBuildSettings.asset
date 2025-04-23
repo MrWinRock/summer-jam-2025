@@ -12,14 +12,26 @@ EditorBuildSettings:
     path: Assets/Scenes/City_moring.unity
     guid: 6c5c08330e4951846ae1b5b8958dbc4f
   - enabled: 1
+    path: Assets/Scenes/Portal1.unity
+    guid: 2f063faa040ce3a4f83cba344104b899
+  - enabled: 1
     path: Assets/Scenes/Race.unity
     guid: fd0c1d239070b144f95cf19f41f7f662
+  - enabled: 1
+    path: Assets/Scenes/Portal2.unity
+    guid: 4c28e6b0dc7088d479447228b1d188df
   - enabled: 1
     path: Assets/Scenes/Wild_West.unity
     guid: 040f945ece9f6d3438feda40400df49f
   - enabled: 1
+    path: Assets/Scenes/Portal3.unity
+    guid: 8bddfa777e3fb714099577171dec568a
+  - enabled: 1
     path: Assets/Scenes/City_night.unity
     guid: 14be30dded6693a479fa5ce095de8f25
+  - enabled: 0
+    path: Assets/Scenes/CutsceneCity_night.unity
+    guid: 6bedbcfbee6221d4f82fb39f28ff69f8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
