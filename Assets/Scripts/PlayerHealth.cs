@@ -56,11 +56,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         if (DeathCounter.instance != null)
         {
             DeathCounter.instance.deathCount++;
+            Debug.Log("Death count: " + DeathCounter.instance.deathCount);
             int count = DeathCounter.instance.deathCount;
             
             Debug.Log("Player died. Death count in scene: " + DeathCounter.instance.deathCount);

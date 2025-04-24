@@ -29,7 +29,15 @@ public class OptionsMenu : MonoBehaviour
     public void Reset()
     {
         TogglePause(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (SceneManager.GetActiveScene().name == "Wild_West")
+        {
+            FindObjectOfType<PlayerHealth>()?.Die();
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void MainMenu()
