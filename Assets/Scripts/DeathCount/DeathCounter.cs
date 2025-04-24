@@ -27,7 +27,7 @@ public class DeathCounter : MonoBehaviour
     void Update()
     {
         // Only reset if we go to a specific scene (e.g. "MainMenu")
-        if (SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6)
+        if (SceneManager.GetActiveScene().buildIndex == notResetSceneIndex1 || SceneManager.GetActiveScene().buildIndex == notResetSceneIndex2)
         {
             Debug.Log("Not Resetting Death Count");
         }
