@@ -7,10 +7,6 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void SettingMenu(GameObject target)
-    {
-        target.SetActive(true);
-    }
     public void QuitGame()
     {
         Debug.Log("QUIT");
