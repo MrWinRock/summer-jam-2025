@@ -14,11 +14,7 @@ public class MusicFader : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
-    void Update()
-    {
-
-    }
-
+// Removed the empty Update method as it was unnecessary.
     IEnumerator FadeIn()
     {
         while (audioSource.volume < 0.5f)
