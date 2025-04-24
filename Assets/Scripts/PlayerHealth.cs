@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement; // ต้องใช้สำหรับโหลดฉากใหม่
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
