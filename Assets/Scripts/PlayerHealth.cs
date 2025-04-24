@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public int takeTrainDamage = 100;
     public int timeUpDamage = 100;
     public int bombDamage = 50;
-    
+    public List<GameObject> portals = new List<GameObject>();
 
     void Start()
     {
@@ -48,6 +49,10 @@ public class PlayerHealth : MonoBehaviour
         {
             CarExplode();
             Invoke(nameof(Die), 2f);
+            foreach (GameObject p in portals)
+            {
+                Destroy(p);
+            }
         }
     }
 
