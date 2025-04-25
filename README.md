@@ -2,6 +2,8 @@
 
 A 3D Road game created for the Thailand Summer Jam 2025.
 
+## [Download Crazy Dad Lore](https://marguro.itch.io/crazy-dad-lore)
+
 ## Description
 
 This is a 3D driving game where the player controls a car on a road trip, potentially avoiding obstacles and managing speed.
