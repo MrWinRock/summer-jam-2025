@@ -14,6 +14,7 @@ This is a 3D driving game where the player controls a car on a road trip, potent
 *   **Nitro Boost:** Interactive obtainable object for more acceleration
 *   **Rear View Mirror:** To see what is behind...
 *   **Brake:** What brake?
+*   **Flip Car:** Press all 4 buttons (W A S D) at the same time.
 
 ## Features
 
@@ -37,7 +38,7 @@ This is a 3D driving game where the player controls a car on a road trip, potent
 *   `MrWinRock` DevOps
 *   `LOVERnoey` Lead Developer
 *   `Marguro` Project Manager/Game Designer
-*   `Vagolf` Sound Effect
-*   `NKantapong` Music
+*   `Vagolf` Sound Effect Designer
+*   `NKantapong` Music Composer
 
 ---
