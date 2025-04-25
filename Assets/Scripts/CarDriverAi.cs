@@ -82,7 +82,6 @@ public class CarDriverAI : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Collision with ground detected!");
             if ((transform.rotation.eulerAngles.z > 150f && transform.rotation.eulerAngles.z < 210f) || 
                 (transform.rotation.eulerAngles.y > 150f && transform.rotation.eulerAngles.y < 210f))
             {

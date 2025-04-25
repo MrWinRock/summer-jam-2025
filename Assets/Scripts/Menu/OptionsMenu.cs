@@ -49,7 +49,6 @@ public class OptionsMenu : MonoBehaviour
     private void TogglePause()
     {
         bool isPaused = !optionsMenu.activeSelf;
-        Debug.Log("Pause: " + isPaused);
         optionsMenu.SetActive(isPaused);
         Time.timeScale = isPaused ? 0 : 1;
 
