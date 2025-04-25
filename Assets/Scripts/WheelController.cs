@@ -84,7 +84,6 @@ public class WheelController : MonoBehaviour
         GetInputs();
         AnimateWheels();
         WheelEffects();
-        Debug.Log(boosterForce);
         
     }
 
@@ -174,7 +173,6 @@ public class WheelController : MonoBehaviour
             }
             else
             {
-                Debug.Log("not drifting");
                 driftSound.Stop();
                 wheel.wheelEffectObj.GetComponentInChildren<TrailRenderer>().emitting = false;
                 nitroEffect1.SetActive(false);
@@ -191,7 +189,6 @@ public class WheelController : MonoBehaviour
             nitroEffect3.SetActive(true);
             nitroEffect4.SetActive(true);
             nitroSound.Play();
-            Debug.Log("Boost");
             boosterForce = 3000;
             Invoke(nameof(ResetBosterForce), nitroDuration);
         }

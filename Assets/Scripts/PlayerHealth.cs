@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -27,14 +28,6 @@ public class PlayerHealth : MonoBehaviour
         wheelController = GetComponent<WheelController>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(20);
-        }
-    }
-
     // ฟังก์ชันรับดาเมจ
     public void TakeDamage(int amount)
     {
@@ -42,9 +35,9 @@ public class PlayerHealth : MonoBehaviour
         {
             return; // ถ้าสุขภาพเป็น 0 หรือ น้อยกว่า 0 จะไม่ทำอะไร
         }
+
         currentHealth -= amount;
-        Debug.Log("Player took damage. Current health: " + currentHealth);
-        
+
         if (currentHealth <= 0)
         {
             CarExplode();
@@ -61,10 +54,8 @@ public class PlayerHealth : MonoBehaviour
         if (DeathCounter.instance != null)
         {
             DeathCounter.instance.deathCount++;
-            Debug.Log("Death count: " + DeathCounter.instance.deathCount);
             int count = DeathCounter.instance.deathCount;
-            
-            Debug.Log("Player died. Death count in scene: " + DeathCounter.instance.deathCount);
+
             if (count == 3)
                 FindObjectOfType<DeathReaction>()?.death3Times?.Play();
             else if (count == 5)
@@ -72,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
             else if (count == 8)
                 FindObjectOfType<DeathReaction>()?.death7Times?.Play();
         }
-        Debug.Log("Player died. Reloading scene...");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -82,10 +73,12 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(takePoliceDamage);
         }
+
         if (other.gameObject.CompareTag("Rock"))
         {
             TakeDamage(takeRockDamage);
         }
+
         if (other.gameObject.CompareTag("Train"))
         {
             TakeDamage(takeTrainDamage);
@@ -100,5 +93,4 @@ public class PlayerHealth : MonoBehaviour
         carExplode.Play();
         carFire.Play();
     }
-    
 }

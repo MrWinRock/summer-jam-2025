@@ -5,6 +5,7 @@ public class MusicFader : MonoBehaviour
 {
     public float fadeDuration = 4f;
     private AudioSource audioSource;
+    public float volume = 0.5f;
     
     void Start()
     {
@@ -17,13 +18,13 @@ public class MusicFader : MonoBehaviour
 // Removed the empty Update method as it was unnecessary.
     IEnumerator FadeIn()
     {
-        while (audioSource.volume < 0.5f)
+        while (audioSource.volume < volume)
         {
             audioSource.volume += Time.deltaTime / fadeDuration;
             yield return null;
         }
 
-        audioSource.volume = 0.5f;
+        audioSource.volume = volume;
     }
     
 }

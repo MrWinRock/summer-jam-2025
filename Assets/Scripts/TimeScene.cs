@@ -32,10 +32,5 @@ public class TimeScene : MonoBehaviour
         {
             playerHealth.TakeDamage(playerHealth.timeUpDamage);
         }
-        
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 }
