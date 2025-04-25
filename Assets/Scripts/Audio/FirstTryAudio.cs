@@ -14,11 +14,11 @@ public class FirstTryAudio : MonoBehaviour
             {
                 fristTryAudio.Play();
             }
-            else if (DeathCounter.instance.deathCount < 7)
+            else if (DeathCounter.instance.deathCount <= 7)
             {
                 under7Times.Play();
             }
-            else if (DeathCounter.instance.deathCount > 7)
+            else if (DeathCounter.instance.deathCount >= 8)
             {
                 over7Times.Play();
             }
